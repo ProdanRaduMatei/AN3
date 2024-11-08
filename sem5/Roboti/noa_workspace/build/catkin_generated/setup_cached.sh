@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pi/noa_workspace/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/pi/noa_workspace/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/pi/noa_workspace/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/pi/noa_workspace/build'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/pi/noa_workspace/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/pi/noa_workspace/src:$ROS_PACKAGE_PATH"
