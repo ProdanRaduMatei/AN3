@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Reservation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:focus {
+            outline: 2px solid #0056b3;
+        }
+
+        .hidden {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container" role="form">
+        <h1>Reserve Your Spot</h1>
+        <form id="reservationForm">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" placeholder="Enter your full name" aria-required="true" aria-label="Full Name"
+                required>
+
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter your email" aria-required="true"
+                aria-label="Email Address" required>
+
+            <label for="date">Reservation Date</label>
+            <input id="date" type="date" aria-label="Reservation Date" aria-required="true" required>
+
+            <label for="seatType">Seat Type</label>
+            <select id="seatType" aria-label="Seat Type">
+                <option value="window">Window Seat</option>
+                <option value="aisle">Aisle Seat</option>
+                <option value="center">Center Seat</option>
+            </select>
+
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" rows="4" placeholder="Any special requests?"
+                aria-label="Additional Comments"></textarea>
+
+            <button type="submit" aria-label="Submit Reservation">Submit</button>
+        </form>
+        <p id="confirmationMessage" class="hidden" role="alert" aria-live="polite"></p>
+    </div>
+
+    <script>
+        // JavaScript pentru funcționalitate accesibilă
+        document.getElementById("reservationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Confirmare accesibilă pentru utilizatori
+            const confirmationMessage = document.getElementById("confirmationMessage");
+            confirmationMessage.textContent = "Reservation successfully submitted!";
+            confirmationMessage.classList.remove("hidden");
+        });
+    </script>
+</body>
+
+</html>
